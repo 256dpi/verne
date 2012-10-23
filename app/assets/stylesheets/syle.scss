@@ -1,0 +1,112 @@
+body {
+  background-color: #eee;
+  font-family: "Helvetica", "Arial", sans-serif;
+  margin: 0px;
+}
+
+.toolbar {
+  list-style: none;
+  padding: 0;
+}
+
+.open_project_window {
+  width: 400px;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: 15%;
+  p {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    float: left;
+    font-size: 20px;
+    border: 1px solid #aaa;
+    width: 300px;
+    padding: 4px;
+    box-sizing: border-box;
+    border-radius: 5px 0 0 5px;
+  }
+  input[type="submit"] {
+    float: right;
+    width: 100px;
+    font-size: 20px;
+    padding: 4px;
+    border: 1px solid #aaa;
+    border-left: 0;
+    box-sizing: border-box;
+    border-radius: 0 5px 5px 0;
+    background-color: #ddd;
+    &:hover {
+      cursor: pointer;
+      background-color:white;
+    }
+  }
+}
+
+.left, .middle, .right {
+  float: left;
+  box-sizing: border-box;
+}
+
+.left {
+  width: 20%;
+  .files {
+    list-style: none;
+    text-align: right;
+    padding: 0px;
+    margin: 35px;
+    li {
+      padding: 2px;
+    }
+    li a {
+      color: #888;
+      &:hover {
+        color: black
+      }
+    }
+  }
+}
+
+.middle {
+  width: 60%;
+}
+
+.right {
+  width: 20%;
+  .links {
+    list-style: none;
+    padding: 0px;
+    margin: 35px;
+    li {
+      padding: 2px;
+    }
+    li a {
+      color: #888;
+      &:hover {
+        color: black
+      }
+    }
+  }
+}
+
+.edit {
+  input[type="submit"] {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    background-color: #444;
+    color: white;
+    border: 1px solid #888;
+    border-radius: 3px;
+    padding: 5px 10px;
+    &:hover {
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+}

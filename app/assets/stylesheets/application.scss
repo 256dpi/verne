@@ -1,0 +1,14 @@
+/*
+*= require_tree .
+*= require codemirror
+*= require codemirror/themes/ambiance
+*= require_self
+*/
+
+.cm-s-ambiance .cm-header {
+  color: #d00;
+}
+
+.CodeMirror-scroll {
+  height: 100%;
+}

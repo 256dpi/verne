@@ -1,0 +1,14 @@
+en:
+  layouts:
+    application:
+      title: Verne
+  start:
+    index:
+      choose_path: Choose Project Path
+      open: open
+  project:
+    view:
+      edit: Edit
+      exit: Exit
+    edit:
+      save: Save

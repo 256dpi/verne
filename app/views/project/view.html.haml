@@ -1,0 +1,11 @@
+.left
+  %ul.files
+    - Dir[session[:path]+"/**/*.md"].each do |file|
+      - file = file.gsub(session[:path]+"/","").gsub(".md","")
+      %li= link_to(file,"/project/view/#{file}") 
+.middle
+  .markdown= raw(markdown(@file_full))
+.right
+  %ul.links
+    %li= link_to t(".edit"), "/project/edit/#{@file}"
+    %li= link_to t(".exit"), root_url

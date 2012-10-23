@@ -1,0 +1,15 @@
+.edit
+  = form_tag "/project/save" do
+    = hidden_field_tag :file, @file
+    = text_area_tag :code, @content
+    = submit_tag t(".save")
+
+:javascript
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    mode: "gfm",
+    lineNumbers: true,
+    matchBrackets: true,
+    tabSize: 2,
+    theme: "ambiance",
+    lineWrapping: true
+  });
