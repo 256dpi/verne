@@ -97,7 +97,7 @@
     font-size: 14px;
   }
 
-  p, blockquote, ul, ol, dl, li, table, pre {
+  p, blockquote, ul, ol, dl, table, pre {
     margin: 15px 0;
   }
 
@@ -244,6 +244,12 @@
 
   img {
     max-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 3px;
   }
 
   span.frame {

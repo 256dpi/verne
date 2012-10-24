@@ -53,14 +53,17 @@ body {
 }
 
 .left {
-  width: 20%;
-  .files {
+  width: 15%;
+  .links {
     list-style: none;
-    text-align: right;
     padding: 0px;
     margin: 35px;
     li {
+      text-align: right;
       padding: 2px;
+      &.title {
+        margin-bottom: 10px;
+      }
     }
     li a {
       color: #888;
@@ -76,8 +79,10 @@ body {
 }
 
 .right {
-  width: 20%;
-  .links {
+  position: fixed;
+  right: 0;
+  width: 25%;
+  .files {
     list-style: none;
     padding: 0px;
     margin: 35px;
@@ -92,6 +97,8 @@ body {
     }
   }
 }
+
+
 
 .edit {
   input[type="submit"] {

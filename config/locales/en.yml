@@ -8,7 +8,7 @@ en:
       open: open
   project:
     view:
-      edit: Edit
-      exit: Exit
+      edit: Edit Page
+      exit: Close Project
     edit:
       save: Save

@@ -12,7 +12,6 @@ end
 
 gem "jquery-rails"
 gem "haml"
-gem "aureus"
 gem "codemirror-rails"
 gem "makeup", :git => "git://github.com/256dpi/makeup.git"
 gem "redcarpet"
