@@ -7,6 +7,6 @@
   .markdown= raw(markdown(@file_full))
 .right
   %ul.files
-    %li= link_to("index","/projects/view/index")
+    %li= link_to("index","/project/view/index")
     - files_tree.each do |file|
       %li= link_to(file,"/project/view/#{file}") 
