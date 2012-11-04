@@ -8,7 +8,7 @@ module ApplicationHelper
   end
   
   def process_links data
-    data.sub /\[\[(.*)\]\]/ do |match|
+    data.gsub /\[\[(.*)\]\]/ do |match|
       link_to $1, "/project/view/#{$1.downcase.parameterize}"
     end
   end
