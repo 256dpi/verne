@@ -13,3 +13,10 @@
     theme: "ambiance",
     lineWrapping: true
   });
+  $(window).keydown(function(e) {
+    if (e.metaKey && e.keyCode == 83) {
+      $("form").submit();
+      e.preventDefault();
+      return false;
+    }
+  });

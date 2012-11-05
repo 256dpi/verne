@@ -53,6 +53,7 @@ body {
 }
 
 .left {
+  position: fixed;
   width: 15%;
   .links {
     list-style: none;
@@ -75,7 +76,12 @@ body {
 }
 
 .middle {
+  margin-left: 15%;
   width: 60%;
+  min-height: 100%;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  background-color: white;
 }
 
 .right {
@@ -98,7 +104,13 @@ body {
   }
 }
 
+.break {
+  clear: both;
+}
 
+.edit {
+  min-height: 100%;
+}
 
 .edit {
   input[type="submit"] {

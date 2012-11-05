@@ -1,7 +1,7 @@
 .left
   %ul.links
     %li.title Verne
-    %li= link_to t(".edit"), "/project/edit/#{@file}"
+    %li.edit= link_to t(".edit"), "/project/edit/#{@file}"
     %li= link_to t(".exit"), root_url
 .middle
   .markdown= raw(markdown(@file_full))
@@ -9,4 +9,14 @@
   %ul.files
     %li= link_to("index","/project/view/index")
     - files_tree.each do |file|
-      %li= link_to(file,"/project/view/#{file}") 
+      %li= link_to(file,"/project/view/#{file}")
+.break
+
+:javascript
+  $(window).keydown(function(e) {
+    if (e.metaKey && e.keyCode == 69) {
+      document.location.href = $("li.edit a").attr("href");
+      e.preventDefault();
+      return false;
+    }
+  });
