@@ -1,5 +1,5 @@
 .open_project_window
   = form_tag "/project/open" do
     %p= t(".choose_path")
-    = text_field_tag :path
+    = text_field_tag :path, @old_path
     = submit_tag t(".open")
