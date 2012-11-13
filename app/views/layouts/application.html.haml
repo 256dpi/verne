@@ -4,6 +4,7 @@
     %meta{ :charset => "utf-8" }/
     %title= t(".title")
     = stylesheet_link_tag "application"
+    = stylesheet_link_tag "print", media: "print"
     = javascript_include_tag "application"
     = csrf_meta_tag
   %body= yield

@@ -55,7 +55,7 @@ body {
 .left {
   position: fixed;
   width: 15%;
-  .links {
+  .links, .infos {
     list-style: none;
     padding: 0px;
     margin: 35px;
@@ -73,6 +73,13 @@ body {
       }
     }
   }
+  .infos li {
+    color: #999;
+    font-size: 12px;
+    span {
+      color: #666;
+    }
+  }
 }
 
 .middle {
@@ -85,7 +92,6 @@ body {
 }
 
 .right {
-  position: fixed;
   right: 0;
   width: 25%;
   .files {

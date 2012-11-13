@@ -1,8 +1,13 @@
 .left
   %ul.links
     %li.title Verne
+    %li= link_to("Index","/project/view/index")
     %li.edit= link_to t(".edit"), "/project/edit/#{@file}"
     %li= link_to t(".exit"), root_url
+  %ul.infos
+    %li <span>⌘+S</span> Save
+    %li <span>⌘+E</span> Edit
+    %li <span>⌘+P</span> Print
 .middle
   .markdown= raw(markdown(@file_full))
 .right
