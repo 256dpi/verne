@@ -1,10 +1,18 @@
 module ApplicationHelper
   
   def markdown file
+    content = File.read(file)
+    content = process_iframes(content)
     highlighter = Makeup::SyntaxHighlighter.new
     renderer = Makeup::Markup.new(:highlighter => highlighter)
-    text = process_links(renderer.render(file,File.read(file)))
+    text = process_links(renderer.render(file,content))
     process_images(text)
+  end
+
+  def process_iframes data
+    data.gsub /\<\<(.*)\>\>/ do |match|
+      "<iframe src=\"/project/file/#{$1}\"></iframe>"
+    end
   end
   
   def process_links data

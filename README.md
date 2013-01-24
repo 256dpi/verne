@@ -23,6 +23,12 @@ Start server manually:
 
 Open the website in the browser as shown by your favorite tool.
 
+## Special Features
+
+Integrate pdf's or other files through iframes:
+
+    <<some.pdf>>
+
 ## Wishlist
 
 - table rendering through redcarpet (smartypants?)

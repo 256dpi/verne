@@ -16,7 +16,7 @@ class ProjectController < ApplicationController
     if session.has_key? :path
       @file = [params[:file],params[:format]].join(".")
       @file_full = session[:path]+"/"+@file
-      send_file @file_full
+      render text: File.read(@file_full)
     else
       redirect_to root_url
     end
