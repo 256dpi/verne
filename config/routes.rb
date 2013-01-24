@@ -4,6 +4,7 @@ Verne::Application.routes.draw do
 
   post "/project/open" => "project#open"  
   get "/project/view/*file" => "project#view"
+  get "/project/file/*file" => "project#file"
   get "/project/edit/*file" => "project#edit"
   post "/project/save" => "project#save"
   

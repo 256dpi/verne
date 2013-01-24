@@ -22,3 +22,7 @@ Start server manually:
     $ rackup
 
 Open the website in the browser as shown by your favorite tool.
+
+## Wishlist
+
+- table rendering through redcarpet (smartypants?)

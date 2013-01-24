@@ -15,9 +15,7 @@ module ApplicationHelper
   
   def process_images data
     data.gsub /<img src="(.+?)"(.*)>/i do |match|
-      file = File.dirname(@file_full)+"/"+$1
-      url = "data:image/#{File.extname($1)};base64,#{Base64.encode64(File.read(file))}"
-      "<img src=\"#{url}\" #{$2}>"
+      "<img src=\"/project/file/#{$1}\" #{$2}>"
     end
   end
   

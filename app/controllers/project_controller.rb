@@ -11,6 +11,16 @@ class ProjectController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def file
+    if session.has_key? :path
+      @file = [params[:file],params[:format]].join(".")
+      @file_full = session[:path]+"/"+@file
+      send_file @file_full
+    else
+      redirect_to root_url
+    end
+  end
   
   def edit
     if session.has_key? :path
