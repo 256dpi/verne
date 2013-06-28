@@ -3,7 +3,7 @@
 //= require_self
 //= require_tree .
 //= require codemirror
-//= require codemirror/utils/overlay
+//= require codemirror/addons/mode/overlay
 //= require codemirror/modes/gfm
 //= require codemirror/modes/markdown
 //= require codemirror/modes/ruby
