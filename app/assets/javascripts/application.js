@@ -9,7 +9,7 @@
 //= require codemirror/modes/ruby
 //= require codemirror/modes/javascript
 
-$(document).ready(function(){
+$(function(){
   $(window).resize(doResize);
   doResize();
 });

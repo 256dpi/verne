@@ -9,7 +9,7 @@
     %li <span>⌘+E</span> Edit
     %li <span>⌘+P</span> Print
 .middle
-  .markdown= raw(markdown(@file_full))
+  .markdown~ raw(markdown(@file_full))
 .right
   %ul.files
     %li= link_to("index","/project/view/index")
