@@ -1,11 +1,9 @@
 Verne::Application.routes.draw do
   
-  root :to => "start#index"
+  root :to => "wiki#index"
 
-  post "/project/open" => "project#open"  
-  get "/project/view/*file" => "project#view"
-  get "/project/file/*file" => "project#file"
-  get "/project/edit/*file" => "project#edit"
-  post "/project/save" => "project#save"
+  get "/view/:wiki_id(/:page)", to: "wiki#view", defaults: { page: "index" }
+  get "/edit/:wiki_id(/:page)", to: "wiki#edit"
+  post "/save/:wiki_id(/:page)", to: "wiki#save"
   
 end

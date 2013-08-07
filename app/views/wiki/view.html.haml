@@ -1,19 +1,22 @@
 .left
   %ul.links
-    %li.title Verne
-    %li= link_to("Index","/project/view/index")
-    %li.edit= link_to t(".edit"), "/project/edit/#{@file}"
-    %li= link_to t(".exit"), root_url
+    %li.title Wikis
+    - @projects.keys.each do |id|
+      %li= link_to @projects[id]["name"], "/view/#{id}"
+  %ul.links
+    %li.title Page
+    %li= link_to("Index","/view/#{@id}/index")
+    %li.edit= link_to t(".edit"), "/edit/#{@id}/#{@page}"
   %ul.infos
     %li <span>⌘+S</span> Save
     %li <span>⌘+E</span> Edit
     %li <span>⌘+P</span> Print
 .middle
-  .markdown~ raw(markdown(@file_full))
+  .markdown~ raw(markdown(@file))
 .right
   %ul.files
     %li= link_to("index","/project/view/index")
-    - files_tree.each do |file|
+    - files_tree(@projects[@id]["path"]).each do |file|
       %li= link_to(file,"/project/view/#{file}")
 .break
 

@@ -27,9 +27,9 @@ module ApplicationHelper
     end
   end
   
-  def files_tree
+  def files_tree path
     files = []
-    Dir[session[:path]+"/**/*.md"].each do |file|
+    Dir[path+"/*.md"].each do |file|
       files.push file.gsub(session[:path]+"/","").gsub(".md","")
     end
     files - ["index"]

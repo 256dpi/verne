@@ -13,6 +13,17 @@ Install dependencies:
     $ cd verne
     $ bundle install
 
+Create a config gile (~/.verne.json):
+
+    {
+      "projects": {
+        "wiki-id" : {
+          "name": "My Wiki",
+          "path": "/path/to/my/wiki"
+        }
+      }
+    }
+
 Start the server using pow and powder:
 
     $ powder link
