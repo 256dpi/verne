@@ -30,7 +30,7 @@ module ApplicationHelper
   def files_tree path
     files = []
     Dir[path+"/*.md"].each do |file|
-      files.push file.gsub(session[:path]+"/","").gsub(".md","")
+      files.push file.gsub(@path+"/","").gsub(".md","")
     end
     files - ["index"]
   end
