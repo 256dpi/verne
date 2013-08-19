@@ -33,16 +33,23 @@ class WikiController < ApplicationController
     redirect_to "/view/#{@id}/#{@page}"
   end
 
+  def file
+    get_info
+    @file = File.expand_path(@project["path"]+"/"+params[:file])
+    @mime = MIME::Types.type_for(@file).first.content_type
+    render :file => @file, content_type: @mime, layout: false
+  end
+
   protected
 
   def get_info
     if @projects[params[:wiki_id]].present?
-      project = @projects[params[:wiki_id]]
+      @project = @projects[params[:wiki_id]]
       @id = params[:wiki_id]
       @name = @projects[@id]["name"]
       @page = params[:page]
       @path = @projects[@id]["path"]
-      @file = File.expand_path(project["path"]+"/"+params[:page]+".md")
+      @file = File.expand_path(@project["path"]+"/"+params[:page].to_s+".md")
     else
       raise "wiki not found"
     end

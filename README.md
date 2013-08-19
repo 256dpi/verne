@@ -40,6 +40,10 @@ Integrate pdf's or other files through iframes:
 
     <<some.pdf>>
 
+For integrating other html files use an expanded iframe:
+
+    <<<some.html>>>
+
 ## Wishlist
 
 - table rendering through redcarpet (smartypants?)

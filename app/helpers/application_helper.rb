@@ -10,20 +10,23 @@ module ApplicationHelper
   end
 
   def process_iframes data
+    data.gsub! /\<\<\<(.*)\>\>\>/ do |match|
+      "<iframe class=\"expanded\" src=\"/file/#{params[:wiki_id]}/#{$1}\"></iframe>"
+    end
     data.gsub /\<\<(.*)\>\>/ do |match|
-      "<iframe src=\"/project/file/#{$1}\"></iframe>"
+      "<iframe src=\"/file/#{params[:wiki_id]}/#{$1}\"></iframe>"
     end
   end
   
   def process_links data
     data.gsub /\[\[(.*)\]\]/ do |match|
-      link_to $1, "/project/view/#{$1.downcase.parameterize}"
+      link_to $1, "/file/#{params[:wiki_id]}/#{$1.downcase.parameterize}"
     end
   end
   
   def process_images data
     data.gsub /<img src="(.+?)"(.*)>/i do |match|
-      "<img src=\"/project/file/#{$1}\" #{$2}>"
+      "<img src=\"/file/#{params[:wiki_id]}/#{$1}\" #{$2}>"
     end
   end
   
