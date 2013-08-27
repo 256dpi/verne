@@ -20,7 +20,7 @@ module ApplicationHelper
   
   def process_links data
     data.gsub /\[\[(.*)\]\]/ do |match|
-      link_to $1, "/file/#{params[:wiki_id]}/#{$1.downcase.parameterize}"
+      link_to $1, "/view/#{params[:wiki_id]}/#{$1.downcase.parameterize}"
     end
   end
   
