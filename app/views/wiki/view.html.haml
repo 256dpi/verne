@@ -7,6 +7,7 @@
     %li.title Page
     %li= link_to("Index","/view/#{@id}/index")
     %li.edit= link_to t(".edit"), "/edit/#{@id}/#{@page}"
+    %li.edit= link_to t(".delete"), "/delete/#{@id}/#{@page}"
   %ul.infos
     %li <span>⌘+S</span> Save
     %li <span>⌘+E</span> Edit

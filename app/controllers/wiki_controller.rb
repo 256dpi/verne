@@ -25,6 +25,14 @@ class WikiController < ApplicationController
     end
   end
 
+  def delete
+    get_info
+    if File.exists? @file
+      File.delete(@file)
+    end
+    redirect_to "/view/#{@id}/index"
+  end
+
   def save
     get_info
     @code = params[:code] || ""
