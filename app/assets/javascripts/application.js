@@ -1,6 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require_self
 //= require_tree .
 //= require codemirror
 //= require codemirror/addons/mode/overlay
@@ -15,6 +14,7 @@ $(function(){
 });
 
 function doResize() {
-  $("body, .CodeMirror").height(0);
-  $("body, .CodeMirror").height($(document).height());
+  cm = $("body, .CodeMirror");
+  cm.height(0);
+  cm.height($(document).height());
 }
