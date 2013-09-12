@@ -12,6 +12,9 @@
     theme: "ambiance",
     lineWrapping: true
   });
+  $(function(){
+    editor.refresh();
+  });
   $(window).keydown(function(e) {
     if (e.metaKey && e.keyCode == 83) {
       $("form").submit();

@@ -5,7 +5,6 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
-require "makeup/markup"
 
 if defined?(Bundler)
   Bundler.require(:default, Rails.env)

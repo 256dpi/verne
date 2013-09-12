@@ -1,12 +1,36 @@
+module Kramdown
+  module Converter
+    class Pygs < Html
+      def convert_codeblock(el, indent)
+        attr = el.attr.dup
+        lang = extract_code_language!(attr)
+        if lang
+          add_code_tags(
+            Pygments.highlight(el.value, lexer: lang, options: { encoding: 'utf-8' })
+          )
+        else
+          "<pre><code>#{el.value}</code></pre>"
+        end
+      end
+
+      def add_code_tags(code)
+        code = code.sub(/<pre>/,'<pre><code>')
+        code = code.sub(/<\/pre>/,"</code></pre>")
+      end
+    end
+  end
+end
+
 module ApplicationHelper
   
   def markdown file
     content = File.read(file)
     content = process_iframes(content)
-    highlighter = Makeup::SyntaxHighlighter.new
-    renderer = Makeup::Markup.new(:highlighter => highlighter)
-    text = process_links(renderer.render(file,content))
-    process_images(text)
+    content = convert_backticks(content)
+    content = Kramdown::Document.new(content).to_pygs
+    content = process_links(content)
+    content = process_images(content)
+    content
   end
 
   def process_iframes data
@@ -16,6 +40,10 @@ module ApplicationHelper
     data.gsub /\<\<(.*)\>\>/ do |match|
       "<iframe src=\"/file/#{params[:wiki_id]}/#{$1}\"></iframe>"
     end
+  end
+
+  def convert_backticks data
+    data.gsub(/```/, "~~~") || data
   end
   
   def process_links data
