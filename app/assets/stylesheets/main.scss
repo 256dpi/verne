@@ -120,6 +120,7 @@ body {
 
 .edit {
   input[type="submit"] {
+    z-index: 2;
     position: fixed;
     right: 10px;
     top: 10px;
