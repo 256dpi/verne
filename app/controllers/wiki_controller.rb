@@ -1,3 +1,5 @@
+require "mime-types"
+
 class WikiController < ApplicationController
 
   def index

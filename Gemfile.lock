@@ -125,6 +125,7 @@ DEPENDENCIES
   haml
   jquery-rails
   kramdown
+  mime-types
   pygments.rb
   rails (= 4.0.0)
   sass-rails
