@@ -6,31 +6,41 @@
 
 Clone the repository to your computer:
 
-    $ git clone https://github.com/256dpi/verne.git
+```sh
+$ git clone https://github.com/256dpi/verne.git
+```
 
 Install dependencies:
 
-    $ cd verne
-    $ bundle install
+```sh
+$ cd verne
+$ bundle install
+```
 
 Create a config gile (~/.verne.json):
 
-    {
-      "projects": {
-        "wiki-id" : {
-          "name": "My Wiki",
-          "path": "/path/to/my/wiki"
-        }
-      }
+```javascript
+{
+  "projects": {
+    "wiki-id" : {
+      "name": "My Wiki",
+      "path": "/path/to/my/wiki"
     }
+  }
+}
+```
 
 Start the server using pow and powder:
 
-    $ powder link
+```sh
+$ powder link
+```
 
-Start server manually:
+Start the server manually:
 
-    $ rackup
+```sh
+$ rackup
+```
 
 Open the website in the browser as shown by your favorite tool.
 
@@ -43,7 +53,3 @@ Integrate pdf's or other files through iframes:
 For integrating other html files use an expanded iframe:
 
     <<<some.html>>>
-
-## Wishlist
-
-- table rendering through redcarpet (smartypants?)
