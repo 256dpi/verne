@@ -1,4 +1,4 @@
-require "mime-types"
+require 'mime-types'
 
 class WikiController < ApplicationController
 
@@ -7,7 +7,7 @@ class WikiController < ApplicationController
       id = @projects.keys.first
       redirect_to "/view/#{id}/index"
     else
-      raise "no projects found in ~/.verne.json"
+      raise 'no projects found in ~/.verne.json'
     end
   end
 
@@ -23,7 +23,7 @@ class WikiController < ApplicationController
     if File.exists? @file
       @content = File.read(@file)
     else
-      @content = ""
+      @content = ''
     end
   end
 
@@ -37,37 +37,35 @@ class WikiController < ApplicationController
 
   def save
     get_info
-    @code = params[:code] || ""
-    @code = @code.gsub("\t","  ")
-    File.open(@file,"w") {|f| f.write(@code) }
+    @code = params[:code] || ''
+    @code = @code.gsub("\t",'  ')
+    File.open(@file, 'w') {|f| f.write(@code) }
     redirect_to "/view/#{@id}/#{@page}"
   end
 
   def file
     get_info
-    @file = File.expand_path(@project["path"]+"/"+params[:file])
+    @file = File.expand_path("#{@project['path']}/#{params[:file]}")
     @mime = MIME::Types.type_for(@file).first.content_type
     if File.exists? @file
       if @mime.match /image/
-        send_file(@file, :disposition => :inline, :type => @mime, :x_sendfile => true )
+        send_file @file, disposition: :inline, type: @mime, x_sendfile: true
       else
-        render :file => @file, content_type: @mime, layout: false
+        render file: @file, content_type: @mime, layout: false
       end
     end
   end
-
-  protected
 
   def get_info
     if @projects[params[:wiki_id]].present?
       @project = @projects[params[:wiki_id]]
       @id = params[:wiki_id]
-      @name = @projects[@id]["name"]
+      @name = @projects[@id]['name']
       @page = params[:page]
-      @path = @projects[@id]["path"]
-      @file = File.expand_path(@project["path"]+"/"+params[:page].to_s+".md")
+      @path = @projects[@id]['path']
+      @file = File.expand_path("#{@project['path']}/#{params[:page]}.md")
     else
-      raise "wiki not found"
+      raise 'wiki not found'
     end
   end
 

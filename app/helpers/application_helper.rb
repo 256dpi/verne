@@ -5,17 +5,15 @@ module Kramdown
         attr = el.attr.dup
         lang = extract_code_language!(attr)
         if lang
-          add_code_tags(
-            Pygments.highlight(el.value, lexer: lang, options: { encoding: 'utf-8' })
-          )
+          add_code_tags Pygments.highlight(el.value, lexer: lang, options: { encoding: 'utf-8' })
         else
           "<pre><code>#{el.value}</code></pre>"
         end
       end
 
       def add_code_tags(code)
-        code = code.sub(/<pre>/,'<pre><code>')
-        code = code.sub(/<\/pre>/,"</code></pre>")
+        code = code.sub(/<pre>/, '<pre><code>')
+        code = code.sub(/<\/pre>/, '</code></pre>')
       end
     end
   end
@@ -43,7 +41,7 @@ module ApplicationHelper
   end
 
   def convert_backticks data
-    data.gsub(/```/, "~~~") || data
+    data.gsub(/```/, '~~~') || data
   end
   
   def process_links data
@@ -60,10 +58,10 @@ module ApplicationHelper
   
   def files_tree path
     files = []
-    Dir[path+"/*.md"].each do |file|
-      files.push file.gsub(@path+"/","").gsub(".md","")
+    Dir["#{path}/*.md"].each do |file|
+      files.push file.gsub("#{@path}/", '').gsub('.md', '')
     end
-    files - ["index"]
+    files - ['index']
   end
 
 end

@@ -1,7 +1,7 @@
 .edit
   = form_tag "/save/#{@id}/#{@page}" do
     = text_area_tag :code, @content
-    = submit_tag "save"
+    = submit_tag 'save'
 
 :javascript
   var editor = CodeMirror.fromTextArea(document.getElementById("code"), {

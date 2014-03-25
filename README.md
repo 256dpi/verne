@@ -1,4 +1,4 @@
-# Verne
+# verne
 
 **a markdown driven, file based wiki engine.**
 

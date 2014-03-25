@@ -2,12 +2,12 @@
   %ul.links
     %li.title Wikis
     - @projects.keys.each do |id|
-      %li= link_to @projects[id]["name"], "/view/#{id}"
+      %li= link_to @projects[id]['name'], "/view/#{id}"
   %ul.links
     %li.title Page
-    %li= link_to("Index","/view/#{@id}/index")
-    %li.edit= link_to t(".edit"), "/edit/#{@id}/#{@page}"
-    %li.edit= link_to t(".delete"), "/delete/#{@id}/#{@page}"
+    %li= link_to('Index', "/view/#{@id}/index")
+    %li.edit= link_to 'Edit', "/edit/#{@id}/#{@page}"
+    %li.edit= link_to 'Delete', "/delete/#{@id}/#{@page}"
   %ul.infos
     %li <span>⌘+S</span> Save
     %li <span>⌘+E</span> Edit
@@ -16,8 +16,8 @@
   .markdown~ raw(markdown(@file))
 .right
   %ul.files
-    %li= link_to("index","/view/#{@id}/index")
-    - files_tree(@projects[@id]["path"]).each do |file|
+    %li= link_to('index',"/view/#{@id}/index")
+    - files_tree(@projects[@id]['path']).each do |file|
       %li= link_to(file,"/view/#{@id}/#{file}")
 .break
 
