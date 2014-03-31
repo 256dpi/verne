@@ -64,7 +64,7 @@ class WikiController < ApplicationController
       @page = params[:page]
       @path = @projects[@id]['path']
       @file = File.expand_path("#{@project['path']}/#{params[:page]}.md")
-      @text = File.read(@file)
+      @text = File.read(@file) if File.exists?(@file)
     else
       raise 'wiki not found'
     end
