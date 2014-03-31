@@ -12,6 +12,9 @@
     %li <span>⌘+S</span> Save
     %li <span>⌘+E</span> Edit
     %li <span>⌘+P</span> Print
+  %ul.infos
+    %li #{@text.length} C
+    %li #{@text.split.length} W
 .middle
   .markdown~ raw(markdown(@file))
 .right
