@@ -46,12 +46,13 @@ class WikiController < ApplicationController
   def file
     get_info
     @file = File.expand_path("#{@project['path']}/#{params[:file]}")
-    @mime = MIME::Types.type_for(@file).first.content_type
     if File.exists? @file
-      if @mime.match /image/
-        send_file @file, disposition: :inline, type: @mime, x_sendfile: true
+      @mime = MIME::Types.of(@file)
+      @type = @mime.count > 0 ? @mime.first.content_type : ''
+      if @type.match /image/
+        send_file @file, disposition: :inline, type: @type, x_sendfile: true
       else
-        render file: @file, content_type: @mime, layout: false
+        render file: @file, content_type: @type, layout: false
       end
     end
   end
