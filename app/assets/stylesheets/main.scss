@@ -124,14 +124,15 @@ body {
     position: fixed;
     right: 10px;
     top: 10px;
-    font-size: 24px;
-    background-color: #444;
-    color: white;
-    border: 1px solid #888;
+    font-size: 20px;
+    background-color: #666;
+    color: #202020;
     border-radius: 3px;
-    padding: 5px 10px;
+    border: 0;
+    text-transform: uppercase;
+    padding: 5px 8px;
     &:hover {
-      background-color: black;
+      background-color: #999;
       cursor: pointer;
     }
   }
