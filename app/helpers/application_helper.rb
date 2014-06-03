@@ -13,28 +13,23 @@ module Kramdown
 
       def add_code_tags(code)
         code = code.sub(/<pre>/, '<pre><code>')
-        code = code.sub(/<\/pre>/, '</code></pre>')
+        code.sub(/<\/pre>/, '</code></pre>')
       end
     end
   end
 end
 
 module ApplicationHelper
-  
-  def markdown file
+  def markdown(file)
     content = File.read(file)
     content = process_iframes(content)
     content = convert_backticks(content)
     content = Kramdown::Document.new(content).to_pygs
     content = process_links(content)
-    content = process_images(content)
-    content
+    process_images(content)
   end
 
   def process_iframes data
-    data.gsub! /\<\<\<(.*)\>\>\>/ do |match|
-      "<iframe class=\"expanded\" src=\"/file/#{params[:wiki_id]}/#{$1}\"></iframe>"
-    end
     data.gsub /\<\<(.*)\>\>/ do |match|
       "<iframe src=\"/file/#{params[:wiki_id]}/#{$1}\"></iframe>"
     end
@@ -63,5 +58,4 @@ module ApplicationHelper
     end
     files - ['index']
   end
-
 end

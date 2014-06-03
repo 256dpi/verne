@@ -1,13 +1,13 @@
 /*
-*= require github
-*= require pygments
+*= require ./markdown
+*= require ./pygments
 *= require_self
 */
 
 body {
   box-sizing: border-box;
   width: 300mm;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   padding: 20mm;
   margin: 0;
 }
