@@ -10,12 +10,22 @@
       %li.save= link_to 'Save', '#'
     - else
       %li.edit= link_to 'Edit', "/edit/#{@id}/#{@page}"
-    %li.edit= link_to 'Delete', "/delete/#{@id}/#{@page}"
+      %li.edit= link_to 'Delete', "/delete/#{@id}/#{@page}"
   %ul.infos
-    %li <span>⌘+S</span> Save
-    %li <span>⌘+E</span> Edit
-    %li <span>⌘+P</span> Print
+    %li
+      %span ⌘+S
+      Save
+    %li
+      %span ⌘+E
+      Edit
+    %li
+      %span ⌘+P
+      Print
   - if params[:action] != 'edit'
     %ul.infos
-      %li #{@text.length} C
-      %li #{@text.split.length} W
+      %li
+        #{@text.length}
+        %span C
+      %li
+        #{@text.split.length}
+        %span W
