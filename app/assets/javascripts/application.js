@@ -26,7 +26,7 @@ $(function(){
   $('li.save').each(function(){
     var editor = CodeMirror.fromTextArea($("#code").get(0), {
       mode: "gfm",
-      lineNumbers: true,
+      lineNumbers: false,
       matchBrackets: true,
       tabSize: 2,
       theme: "pastel-on-dark",
