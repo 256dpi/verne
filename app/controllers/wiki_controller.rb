@@ -1,44 +1,32 @@
 require 'mime-types'
 
 class WikiController < ApplicationController
-
   def index
-    if !@projects.empty?
-      id = @projects.keys.first
-      redirect_to "/view/#{id}/index"
-    else
-      raise 'no projects found in ~/.verne.json'
-    end
+    raise 'no projects found in ~/.verne.json' if @projects.empty?
+    id = @projects.keys.first
+    redirect_to "/view/#{id}/index"
   end
 
   def view
     get_info
-    if not File.exists? @file
-      redirect_to "/edit/#{@id}/#{@page}"
-    end
+    redirect_to "/edit/#{@id}/#{@page}" unless File.exists?(@file)
   end
 
   def edit
     get_info
-    if File.exists? @file
-      @content = File.read(@file)
-    else
-      @content = ''
-    end
+    @content = File.exists?(@file) ? File.read(@file) : ''
   end
 
   def delete
     get_info
-    if File.exists? @file
-      File.delete(@file)
-    end
+    File.delete(@file) if File.exists? @file
     redirect_to "/view/#{@id}/index"
   end
 
   def save
     get_info
     @code = params[:code] || ''
-    @code = @code.gsub("\t",'  ')
+    @code = @code.gsub("\t", '  ')
     File.open(@file, 'w') {|f| f.write(@code) }
     redirect_to "/view/#{@id}/#{@page}"
   end
@@ -70,5 +58,4 @@ class WikiController < ApplicationController
       raise 'wiki not found'
     end
   end
-
 end
