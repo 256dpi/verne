@@ -1,0 +1,5 @@
+.right
+  %ul.files
+    %li= link_to('index',"/view/#{@id}/index")
+    - files_tree(@projects[@id]['path']).each do |file|
+      %li= link_to(file,"/view/#{@id}/#{file}")

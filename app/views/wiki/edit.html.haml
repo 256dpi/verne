@@ -1,24 +1,7 @@
-.edit
+= render partial: 'left'
+
+.middle
   = form_tag "/save/#{@id}/#{@page}" do
     = text_area_tag :code, @content
-    = submit_tag 'save'
 
-:javascript
-  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-    mode: "gfm",
-    lineNumbers: true,
-    matchBrackets: true,
-    tabSize: 2,
-    theme: "pastel-on-dark",
-    lineWrapping: true
-  });
-  $(function(){
-    editor.refresh();
-  });
-  $(window).keydown(function(e) {
-    if (e.metaKey && e.keyCode == 83) {
-      $("form").submit();
-      e.preventDefault();
-      return false;
-    }
-  });
+= render partial: 'right'

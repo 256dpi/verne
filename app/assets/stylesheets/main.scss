@@ -1,50 +1,8 @@
 body {
-  background-color: #eee;
-  font-family: "Helvetica", "Arial", sans-serif;
+  background-color: #202020;
+  font-family: "Helvetica Neue", sans-serif;
   margin: 0px;
-}
-
-.toolbar {
-  list-style: none;
-  padding: 0;
-}
-
-.open_project_window {
-  width: 400px;
-  border-radius: 3px;
-  margin: 0 auto;
-  margin-top: 15%;
-  p {
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 10px;
-  }
-  input[type="text"] {
-    float: left;
-    font-size: 20px;
-    border: 1px solid #aaa;
-    width: 300px;
-    padding: 4px;
-    box-sizing: border-box;
-    border-radius: 5px 0 0 5px;
-  }
-  input[type="submit"] {
-    float: right;
-    width: 100px;
-    font-size: 20px;
-    padding: 4px;
-    border: 1px solid #aaa;
-    border-left: 0;
-    box-sizing: border-box;
-    border-radius: 0 5px 5px 0;
-    background-color: #ddd;
-    &:hover {
-      cursor: pointer;
-      background-color:white;
-    }
-  }
+  color: #fff;
 }
 
 .left, .middle, .right {
@@ -53,6 +11,7 @@ body {
 }
 
 .left {
+  color: #bbb;
   position: fixed;
   width: 15%;
   .links, .infos {
@@ -67,14 +26,15 @@ body {
       }
     }
     li a {
-      color: #888;
+      color: #777;
+      text-decoration: none;
       &:hover {
-        color: black
+        color: #fff;
       }
     }
   }
   .infos li {
-    color: #999;
+    color: #888;
     font-size: 12px;
     span {
       color: #666;
@@ -84,56 +44,32 @@ body {
 
 .middle {
   margin-left: 15%;
-  width: 60%;
+  width: 65%;
   min-height: 100%;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
   background-color: white;
 }
 
 .right {
   right: 0;
-  width: 25%;
+  width: 20%;
   .files {
     list-style: none;
     padding: 0px;
     margin: 35px;
     li {
-      padding: 2px;
-    }
-    li a {
-      color: #888;
-      &:hover {
-        color: black
+      a {
+        padding: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        text-overflow: ellipsis;
+        display: block;
+        color: #888;
+        text-decoration: none;
+        &:hover {
+          color: #fff;
+        }
       }
-    }
-  }
-}
-
-.break {
-  clear: both;
-}
-
-.edit {
-  min-height: 100%;
-}
-
-.edit {
-  input[type="submit"] {
-    z-index: 2;
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    font-size: 20px;
-    background-color: #666;
-    color: #202020;
-    border-radius: 3px;
-    border: 0;
-    text-transform: uppercase;
-    padding: 5px 8px;
-    &:hover {
-      background-color: #999;
-      cursor: pointer;
     }
   }
 }
