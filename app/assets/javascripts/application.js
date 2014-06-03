@@ -42,10 +42,10 @@ $(function(){
         return false;
       }
     });
+    $(this).click(function(){
+      $('form').submit();
+    })
   });
-  $(this).click(function(){
-    $('form').submit();
-  })
 });
 
 // Make CodeMirror fullscreen
