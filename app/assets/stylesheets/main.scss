@@ -61,10 +61,11 @@ body {
         padding: 2px;
         white-space: nowrap;
         overflow: hidden;
+        font-weight: 200;
         width: 100%;
         text-overflow: ellipsis;
         display: block;
-        color: #888;
+        color: #777;
         text-decoration: none;
         &:hover {
           color: #fff;
