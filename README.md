@@ -1,6 +1,6 @@
 # verne
 
-**a markdown driven, file based wiki engine.**
+**a markdown files driven wiki engine**
 
 ## Installation
 
